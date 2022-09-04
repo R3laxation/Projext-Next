@@ -1,7 +1,9 @@
+import {Htag} from "../components/Htag/Htag";
+
 export default function Home() {
   return (
     <div>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, quia!
+        <Htag tag='h1'>ts</Htag>
     </div>
   )
 }
