@@ -1,10 +1,23 @@
-import { useState } from "react";
+import {useEffect, useState} from "react";
 import {Button, Paragraph, Tag} from "../components";
 import {Htag} from "../components/Htag/Htag";
+
 
 export default function Home() {
 
     const [counter, setCounter] = useState(0);
+
+
+    useEffect(() => {
+            console.log('Counter' + counter)
+        return function cleanUp() {
+            console.log('Unmount')
+        }
+    }, )
+
+    useEffect(() => {
+        console.log('Mounted')
+    }, [])
 
   return (
     <div>
