@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import {Button, Paragraph, Tag} from "../components";
+import {Button, Paragraph, Rating, Tag} from "../components";
 import {Htag} from "../components/Htag/Htag";
 
 
@@ -28,6 +28,7 @@ export default function Home() {
         <Tag size={'m'} color={'red'}>Medium</Tag>
         <Tag size={'m'} color={'green'}>Medium</Tag>
         <Tag size={'s'} color={'primary'}>Medium</Tag>
+        <Rating rating={2} />
     </div>
   )
 }
