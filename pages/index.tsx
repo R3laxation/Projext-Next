@@ -1,5 +1,6 @@
 import {useState} from "react";
 import {Paragraph, Rating, Tag} from "../components";
+import {Layout} from "../layout/Layout";
 
 
 export default function Home() {
@@ -8,13 +9,13 @@ export default function Home() {
 
 
     return (
-        <div>
+        <Layout>
             <Paragraph>asd</Paragraph>
             <Tag size={'s'}>Small</Tag>
             <Tag size={'m'} color={'red'}>Medium</Tag>
             <Tag size={'m'} color={'green'}>Medium</Tag>
             <Tag size={'s'} color={'primary'}>Medium</Tag>
             <Rating rating={rating} isEditable={true} setRating={setRating}/>
-        </div>
+        </Layout>
     )
 }
