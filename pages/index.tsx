@@ -1,6 +1,6 @@
-import {FunctionComponent, useState} from "react";
+import {useState} from "react";
 import {Paragraph, Rating, Tag} from "../components";
-import {Layout, withLayout} from "../layout/Layout";
+import {withLayout} from "../layout/Layout";
 
 
 function Home() {
