@@ -6,7 +6,7 @@ import axios from "axios";
 import {MenuItem} from "../intergaces/menu.interface";
 
 
-function Home() {
+function Home({menu, firstCategory}:HomeProps) {
 
     const [rating, setRating] = useState(4);
 
