@@ -1,6 +1,9 @@
 import {useState} from "react";
 import {Paragraph, Rating, Tag} from "../components";
 import {withLayout} from "../layout/Layout";
+import {GetStaticProps} from "next";
+import axios from "axios";
+import {MenuItem} from "../intergaces/menu.interface";
 
 
 function Home() {
@@ -21,3 +24,21 @@ function Home() {
 }
 
 export default withLayout(Home);
+
+export const getStaticProps: GetStaticProps<HomeProps> = async () => {
+
+    const firstCategory = 0;
+    const {data: menu} = await axios.post<MenuItem[]>(process.env.NEXT_PUBLIC_DOMAIN + '/api/top-page/find');
+
+    return {
+        props: {
+            menu,
+            firstCategory,
+        }
+    }
+}
+
+interface HomeProps {
+    menu: MenuItem[];
+    firstCategory: number;
+}
