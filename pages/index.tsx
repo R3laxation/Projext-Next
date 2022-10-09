@@ -5,11 +5,9 @@ import {GetStaticProps} from "next";
 import axios from "axios";
 import {MenuItem} from "../intergaces/menu.interface";
 
-
 function Home({menu}: HomeProps) {
 
     const [rating, setRating] = useState(4);
-
 
     return (
         <>
