@@ -1,4 +1,4 @@
-import {createContext, ReactNode} from "react";
+import {createContext, ReactNode, useState} from "react";
 import {TopLevelCategory} from "../intergaces/page.interface";
 import {MenuItem} from "../intergaces/menu.interface";
 
@@ -6,16 +6,19 @@ import {MenuItem} from "../intergaces/menu.interface";
 export interface IAppContext {
     menu: MenuItem[];
     firstCategory: TopLevelCategory;
-    setMenu?: (newMenu: MenuItem) => void;
+    setMenu?: (newMenu: MenuItem[]) => void;
 }
 
 export const AppContext = createContext<IAppContext>({menu: [], firstCategory: TopLevelCategory.Courses});
 
 export const AppContextProvider = ({menu, firstCategory, children}: IAppContext & {children: ReactNode}): JSX.Element => {
 
+    const [menuState, setMenuState] = useState<MenuItem[]>(menu);
+    const setMenu = (newMenu: MenuItem[]) => {
+        setMenuState(newMenu);
+    }
 
-
-    return <AppContext.Provider>
+    return <AppContext.Provider value={{menu: menuState, firstCategory, setMenu}}>
         {children}
         </AppContext.Provider>;
 };
