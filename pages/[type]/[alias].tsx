@@ -5,8 +5,8 @@ import {MenuItem} from "../../interfaces/menu.interface";
 import {TopPageModel} from "../../interfaces/page.interface";
 import {ParsedUrlQuery} from "querystring";
 import {ProductModel} from "../../interfaces/product.interface";
+import {firstLevelMenu} from "../../helpers/helpers";
 
-const firstCategory = 0;
 
 function Course({menu, products, page}: CourseProps) {
 
@@ -37,14 +37,24 @@ export const getStaticProps: GetStaticProps<CourseProps> = async ({params}: GetS
             notFound: true,
         }
     };
+
+    const firstCategoryItem = firstLevelMenu.find(m => m.route === params.type);
+
+    if (!firstCategoryItem){
+        return {
+            notFound: true
+        }
+    }
+
     const {data: menu} = await axios.post<MenuItem[]>(process.env.NEXT_PUBLIC_DOMAIN + '/api/top-page/find', {
-        firstCategory
+        firstCategory: firstCategoryItem.id
     });
     const {data: page} = await axios.get<TopPageModel>(process.env.NEXT_PUBLIC_DOMAIN + '/api/top-page/byAlias/' + params.alias);
     const {data: products} = await axios.post<ProductModel[]>(process.env.NEXT_PUBLIC_DOMAIN + '/api/product/find', {
         category: page.category,
         limit: 10,
     });
+
 
     return {
         props: {
