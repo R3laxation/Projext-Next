@@ -22,6 +22,15 @@ export const Menu = (): JSX.Element => {
     const {menu, setMenu, firstCategory} = useContext(AppContext);
     const router = useRouter();
 
+    const openSecondLevel = (secondCategory: string) => {
+        setMenu && setMenu(menu.map(m=> {
+            if(m._id.secondCategory === secondCategory){
+                m.isOpened = true;
+            }
+            return m
+        }));
+    };
+
 
 
     const buildFirstLevel = () => {
