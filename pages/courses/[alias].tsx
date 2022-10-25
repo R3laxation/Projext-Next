@@ -1,10 +1,10 @@
 import {withLayout} from "../../layout/Layout";
 import {GetStaticPaths, GetStaticProps, GetStaticPropsContext} from "next";
 import axios from "axios";
-import {MenuItem} from "../../intergaces/menu.interface";
-import {TopPageModel} from "../../intergaces/page.interface";
+import {MenuItem} from "../../interfaces/menu.interface";
+import {TopPageModel} from "../../interfaces/page.interface";
 import {ParsedUrlQuery} from "querystring";
-import {ProductModel} from "../../intergaces/product.interface";
+import {ProductModel} from "../../interfaces/product.interface";
 
 const firstCategory = 0;
 

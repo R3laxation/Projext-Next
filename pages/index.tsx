@@ -3,7 +3,7 @@ import {Paragraph, Rating, Tag} from "../components";
 import {withLayout} from "../layout/Layout";
 import {GetStaticProps} from "next";
 import axios from "axios";
-import {MenuItem} from "../intergaces/menu.interface";
+import {MenuItem} from "../interfaces/menu.interface";
 
 function Home({menu}: HomeProps) {
 

@@ -1,11 +1,11 @@
 import {useContext} from "react";
 import {AppContext} from "../../context/app.context";
-import {FirstLevelMenuItem, PageItem} from "../../intergaces/menu.interface";
+import {FirstLevelMenuItem, PageItem} from "../../interfaces/menu.interface";
 import CoursesIcon from './Icons/courses.svg';
 import ServicesIcon from './Icons/services.svg';
 import BooksIcon from './Icons/books.svg';
 import GoodsIcon from './Icons/goods.svg';
-import {TopLevelCategory} from "../../intergaces/page.interface";
+import {TopLevelCategory} from "../../interfaces/page.interface";
 import cn from "classnames";
 import styles from './Menu.module.css';
 import Link from "next/link";
