@@ -2,7 +2,7 @@ import {withLayout} from "../../layout/Layout";
 import {GetStaticPaths, GetStaticProps, GetStaticPropsContext} from "next";
 import axios from "axios";
 import {MenuItem} from "../../interfaces/menu.interface";
-import {TopPageModel} from "../../interfaces/page.interface";
+import {TopLevelCategory, TopPageModel} from "../../interfaces/page.interface";
 import {ParsedUrlQuery} from "querystring";
 import {ProductModel} from "../../interfaces/product.interface";
 import {firstLevelMenu} from "../../helpers/helpers";
@@ -20,12 +20,16 @@ function Course({menu, products, page}: CourseProps) {
 export default withLayout(Course);
 
 export const getStaticPaths: GetStaticPaths = async () => {
-    const {data: menu} = await axios.post<MenuItem[]>(process.env.NEXT_PUBLIC_DOMAIN + '/api/top-page/find', {
-        firstCategory
-    });
+    let paths: string[] = [];
+    for(const m of firstLevelMenu){
+        const {data: menu} = await axios.post<MenuItem[]>(process.env.NEXT_PUBLIC_DOMAIN + '/api/top-page/find', {
+            firstCategory: m.id
+        });
+        paths: paths.concat(menu.flatMap(m => m.pages.map(p => '/[type]/' + p.alias)));
+    }
 
     return {
-        paths: menu.flatMap(m => m.pages.map(p => '/[type]/' + p.alias)),
+        paths,
         fallback: true
     };
 };
@@ -59,7 +63,7 @@ export const getStaticProps: GetStaticProps<CourseProps> = async ({params}: GetS
     return {
         props: {
             menu,
-            firstCategory,
+            firstCategory: firstCategoryItem.id,
             page,
             products,
         }
@@ -68,7 +72,7 @@ export const getStaticProps: GetStaticProps<CourseProps> = async ({params}: GetS
 
 interface CourseProps extends Record<string, unknown> {
     menu: MenuItem[];
-    firstCategory: number;
+    firstCategory: TopLevelCategory;
     page: TopPageModel;
     products: ProductModel[];
 }
