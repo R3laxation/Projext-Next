@@ -1,14 +1,15 @@
-import {GetStaticPaths, GetStaticProps} from "next";
+import {GetStaticPaths, GetStaticProps, GetStaticPropsContext} from "next";
 import axios from "axios";
 import {withLayout} from "../../layout/Layout";
 import {MenuItem} from "../../interfaces/menu.interface";
 import {firstLevelMenu} from "../../helpers/helpers";
+import {ParsedUrlQuery} from "querystring";
 
-function Type() {
+function Type({firstCategory}: TypeProps) {
 
     return (
         <>
-
+            Type:{firstCategory}
         </>
     )
 }
@@ -22,22 +23,33 @@ export const getStaticPaths: GetStaticPaths = async () => {
     };
 };
 
-export const getStaticProps: GetStaticProps<HomeProps> = async () => {
+export const getStaticProps: GetStaticProps<TypeProps> = async ({params}: GetStaticPropsContext<ParsedUrlQuery>) => {
 
-    const firstCategory = 0;
+    if (!params) {
+        return {
+            notFound: true,
+        }
+    };
+    const firstCategoryItem = firstLevelMenu.find(m => m.route === params.type);
+
+    if (!firstCategoryItem){
+        return {
+            notFound: true
+        }
+    }
+
     const {data: menu} = await axios.post<MenuItem[]>(process.env.NEXT_PUBLIC_DOMAIN + '/api/top-page/find', {
-        firstCategory
+        firstCategory: firstCategoryItem.id
     });
 
     return {
         props: {
             menu,
-            firstCategory,
+            firstCategory: firstCategoryItem.id,
         }
     }
 }
 
-interface HomeProps extends Record<string, unknown>{
-    menu: MenuItem[];
+interface TypeProps extends Record<string, unknown>{
     firstCategory: number;
 }
