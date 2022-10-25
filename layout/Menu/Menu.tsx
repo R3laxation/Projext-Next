@@ -1,22 +1,11 @@
 import {useContext} from "react";
 import {AppContext} from "../../context/app.context";
 import {FirstLevelMenuItem, PageItem} from "../../interfaces/menu.interface";
-import CoursesIcon from './Icons/courses.svg';
-import ServicesIcon from './Icons/services.svg';
-import BooksIcon from './Icons/books.svg';
-import GoodsIcon from './Icons/goods.svg';
-import {TopLevelCategory} from "../../interfaces/page.interface";
 import cn from "classnames";
 import styles from './Menu.module.css';
 import Link from "next/link";
 import {useRouter} from "next/router";
-
-const firstLevelMenu: FirstLevelMenuItem[] = [
-    {route: 'courses', name: 'Курсы', icon: <CoursesIcon/>, id: TopLevelCategory.Courses},
-    {route: 'services', name: 'Сервисы', icon: <ServicesIcon/>, id: TopLevelCategory.Courses},
-    {route: 'books', name: 'Книги', icon: <BooksIcon/>, id: TopLevelCategory.Courses},
-    {route: 'goods', name: 'Товары', icon: <GoodsIcon/>, id: TopLevelCategory.Courses},
-];
+import { firstLevelMenu } from "../../helpers/helpers";
 
 export const Menu = (): JSX.Element => {
     const {menu, setMenu, firstCategory} = useContext(AppContext);
@@ -30,8 +19,6 @@ export const Menu = (): JSX.Element => {
             return m
         }));
     };
-
-
 
     const buildFirstLevel = () => {
         return (

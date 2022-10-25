@@ -25,7 +25,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     });
 
     return {
-        paths: menu.flatMap(m => m.pages.map(p => '/courses/' + p.alias)),
+        paths: menu.flatMap(m => m.pages.map(p => '/[type]/' + p.alias)),
         fallback: true
     };
 };
