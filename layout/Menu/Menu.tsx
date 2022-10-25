@@ -9,6 +9,7 @@ import {TopLevelCategory} from "../../intergaces/page.interface";
 import cn from "classnames";
 import styles from './Menu.module.css';
 import Link from "next/link";
+import {useRouter} from "next/router";
 
 const firstLevelMenu: FirstLevelMenuItem[] = [
     {route: 'courses', name: 'Курсы', icon: <CoursesIcon/>, id: TopLevelCategory.Courses},
@@ -19,6 +20,7 @@ const firstLevelMenu: FirstLevelMenuItem[] = [
 
 export const Menu = (): JSX.Element => {
     const {menu, setMenu, firstCategory} = useContext(AppContext);
+    const router = useRouter();
     const buildFirstLevel = () => {
         return (
             <div>
