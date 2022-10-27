@@ -20,6 +20,10 @@ export const TopPageComponent = ({page, products, firstCategory}: TopPageCompone
                 <Htag tag={'h2'}>Вакансии - {page.category}</Htag>
                 <Tag color={'red'} size={'m'}>hh.ru</Tag>
             </div>
+            <div className={styles.hh}>
+
+
+            </div>
         </div>
     )
 }
