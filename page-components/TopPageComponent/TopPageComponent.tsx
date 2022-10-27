@@ -7,13 +7,13 @@ import {Htag, Tag} from "../../components";
 export const TopPageComponent = ({page, products, firstCategory}: TopPageComponentProps): JSX.Element => {
 
     return (
-            <>
-                <div >
+            <div className={styles.wrapper}>
+                <div>
                     <Htag tag={'h1'}>{page.title}</Htag>
                     {products && <Tag color={'grey'} size={'m'}>{products.length}</Tag>}
                     <span></span>
                 </div>
                 {products && products.length}
-            </>
+            </div>
     )
 }
