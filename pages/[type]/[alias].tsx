@@ -6,15 +6,12 @@ import {TopLevelCategory, TopPageModel} from "../../interfaces/page.interface";
 import {ParsedUrlQuery} from "querystring";
 import {ProductModel} from "../../interfaces/product.interface";
 import {firstLevelMenu} from "../../helpers/helpers";
+import {TopPageComponent} from "../../page-components";
 
 
-function TopPage({menu, products, page}: TopPageProps) {
+function TopPage({firstCategory, products, page}: TopPageProps) {
 
-    return (
-        <>
-            {products && products.length}
-        </>
-    )
+    return <TopPageComponent firstCategory={firstCategory} page={page} products={products}/>
 }
 
 export default withLayout(TopPage);
