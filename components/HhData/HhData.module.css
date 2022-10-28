@@ -15,3 +15,11 @@
     padding: 20px;
     text-align: center;
 }
+
+.salary > div {
+    border-right: 1px solid var(--gray-light);
+}
+
+.salary > div:last-child {
+    border: none;
+}
