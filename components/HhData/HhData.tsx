@@ -26,7 +26,7 @@ export const HhData = ({count, juniorSalary, middleSalary, seniorSalary}: HhData
                         <div className={styles.salaryValue}>{middleSalary}</div>
                         <div className={styles.rate}>
                             <RateIcon className={styles.filled}/>
-                            <RateIcon/>
+                            <RateIcon className={styles.filled}/>
                             <RateIcon/>
                         </div>
                     </div>
@@ -35,8 +35,8 @@ export const HhData = ({count, juniorSalary, middleSalary, seniorSalary}: HhData
                         <div className={styles.salaryValue}>{seniorSalary}</div>
                         <div className={styles.rate}>
                             <RateIcon className={styles.filled}/>
-                            <RateIcon/>
-                            <RateIcon/>
+                            <RateIcon className={styles.filled}/>
+                            <RateIcon className={styles.filled}/>
                         </div>
                     </div>
 
