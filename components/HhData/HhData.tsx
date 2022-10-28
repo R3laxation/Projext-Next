@@ -15,7 +15,7 @@ export const HhData = ({count}: HhDataProps): JSX.Element => {
                     <div className={styles.title}>Всего вакансий</div>
                     <div className={styles.salaryValue}>{count}</div>
                     <div className={styles.rate}>
-                        <RateIcon/>
+                        <RateIcon className={styles.filled}/>
                         <RateIcon/>
                         <RateIcon/>
                     </div>
