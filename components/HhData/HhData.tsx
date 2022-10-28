@@ -9,7 +9,7 @@ export const HhData = ({count, juniorSalary, middleSalary, seniorSalary}: HhData
             <div className={styles.hh}>
                 <Card className={styles.count}>
                     <div className={styles.title}>Всего вакансий</div>
-                    <div className={styles.statValue}>{count}</div>
+                    <div className={styles.countValue}>{count}</div>
                 </Card>
                 <Card className={styles.salary}>
                     <div>
