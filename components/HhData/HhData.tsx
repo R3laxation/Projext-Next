@@ -12,13 +12,25 @@ export const HhData = ({count}: HhDataProps): JSX.Element => {
                     <div className={styles.statValue}>{count}</div>
                 </Card>
                 <Card className={styles.salary}>
-                    <div className={styles.title}>Всего вакансий</div>
-                    <div className={styles.salaryValue}>{count}</div>
-                    <div className={styles.rate}>
-                        <RateIcon className={styles.filled}/>
-                        <RateIcon/>
-                        <RateIcon/>
+                    <div>
+                        <div className={styles.title}>Всего вакансий</div>
+                        <div className={styles.salaryValue}>{count}</div>
+                        <div className={styles.rate}>
+                            <RateIcon className={styles.filled}/>
+                            <RateIcon/>
+                            <RateIcon/>
+                        </div>
                     </div>
+                    <div>
+                        <div className={styles.title}>Всего вакансий</div>
+                        <div className={styles.salaryValue}>{count}</div>
+                        <div className={styles.rate}>
+                            <RateIcon className={styles.filled}/>
+                            <RateIcon/>
+                            <RateIcon/>
+                        </div>
+                    </div>
+
                 </Card>
             </div>
     )
