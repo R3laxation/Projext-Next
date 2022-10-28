@@ -28,4 +28,12 @@
     font-weight: 300;
     font-size: 20px;
     line-height: 27px;
+    margin-bottom: 10px;
+}
+
+.countValue{
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 49px;
+    color: var(--primary)
 }
