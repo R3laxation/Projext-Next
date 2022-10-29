@@ -11,3 +11,8 @@ export const firstLevelMenu: FirstLevelMenuItem[] = [
     {route: 'books', name: 'Книги', icon: <BooksIcon/>, id: TopLevelCategory.Courses},
     {route: 'goods', name: 'Товары', icon: <GoodsIcon/>, id: TopLevelCategory.Courses},
 ];
+
+
+export const priceRu = () =>{
+
+}
