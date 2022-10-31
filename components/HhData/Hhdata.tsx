@@ -6,9 +6,9 @@ import {Card} from "../Card/Card";
 export const Hhdata = ({count}: HhDataProps): JSX.Element => {
 
     return (
-        <Card className={styles.hhCount}>
-            <div className={styles.hhStatTitle}>Всего вакансий</div>
-            <div className={styles.hhStatCount}>{count}</div>
+        <Card className={styles.count}>
+            <div className={styles.title}>Всего вакансий</div>
+            <div className={styles.statCount}>{count}</div>
         </Card>
     )
 }
