@@ -1,6 +1,6 @@
 import {TopPageComponentProps} from "./TopPageComponentProps";
 import styles from './TopPageComponent.module.css';
-import {Card, Htag, Tag} from "../../components";
+import {HhData, Htag, Tag} from "../../components";
 
 
 export const TopPageComponent = ({page, products, firstCategory}: TopPageComponentProps): JSX.Element => {

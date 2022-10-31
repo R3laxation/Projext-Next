@@ -10,6 +10,7 @@ import {TopPageComponent} from "../../page-components";
 
 
 function TopPage({firstCategory, products, page}: TopPageProps) {
+
     return (
         <TopPageComponent firstCategory={firstCategory} page={page} products={products}/>
     )
