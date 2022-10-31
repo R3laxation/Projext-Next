@@ -21,9 +21,9 @@ export const TopPageComponent = ({page, products, firstCategory}: TopPageCompone
                 <Tag color={'red'} size={'m'}>hh.ru</Tag>
             </div>
             <div className={styles.hh}>
-                <Card>
-                    <div>Всего вакансий</div>
-                    <div>{page.hh?.count}</div>
+                <Card className={styles.hhCount}>
+                    <div className={styles.hhStatTitle}>Всего вакансий</div>
+                    <div className={styles.hhStatCount}>{page.hh?.count}</div>
                 </Card>
 
             </div>
