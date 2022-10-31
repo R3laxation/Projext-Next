@@ -1,17 +1,14 @@
 import cn from 'classnames';
 import {HhDataProps} from "./HhDataProps";
 import styles from './HhData.module.css';
+import {Card} from "../Card/Card";
 
-
-export const Hhdata = ({}: HhDataProps): JSX.Element => {
+export const Hhdata = ({count}: HhDataProps): JSX.Element => {
 
     return (
-        <div className={cn(styles.card, className, {
-            [styles.blue]: color === 'blue'
-        })}
-             {...props}
-        >
-            {children}
-        </div>
+        <Card className={styles.hhCount}>
+            <div className={styles.hhStatTitle}>Всего вакансий</div>
+            <div className={styles.hhStatCount}>{count}</div>
+        </Card>
     )
 }
